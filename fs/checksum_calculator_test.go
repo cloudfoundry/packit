@@ -101,7 +101,8 @@ func testChecksumCalculator(t *testing.T, context spec.G, it spec.S) {
 						shuffledPaths = append(shuffledPaths, paths[value])
 					}
 
-					sum2, err := calculator.Sum(shuffledPaths...)
+					calculator2 := fs.NewChecksumCalculator()
+					sum2, err := calculator2.Sum(shuffledPaths...)
 					Expect(err).NotTo(HaveOccurred())
 					Expect(sum1).To(Equal(sum2))
 				})
